@@ -1,0 +1,44 @@
+
+.appheader{
+  height: 80px;
+  background-color: rgb(94, 125, 172);
+  width: 100%;
+  display: flex;
+}
+
+.color{
+  color: white;
+}
+.header-logo{
+  display: flex;
+}
+.hello{
+  align-content: flex-end;
+  justify-content: flex-end;
+  flex: 1;
+}
+.appfooter{
+  height: 40px;
+  background-color: rgb(94, 125, 172);
+  text-align: center;
+  font-size: 0.8rem;
+  align-content: center;
+}
+
+.footerimg{
+  width: 30vw;
+  height: 7vw;
+}
+
+.appsection{
+  /* height: calc(100% - 120px); */
+  height: 100%;
+  width: 100%;
+}
+
+.hp{
+  position: fixed;
+  right: -270px;
+}
+
+
