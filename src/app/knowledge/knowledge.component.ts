@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpEvent} from '@angular/common/http';
-import { KbService } from '../kb.service';
+// import { KbService } from '../kb.service';
 
 import { dataLoader, Label } from '@amcharts/amcharts4/core';
 
@@ -52,11 +52,11 @@ export class KnowledgeComponent implements OnInit {
   removable = true;
   
 
-  constructor(private kbService: KbService, private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-   this.displayConcept=['test1', 'test2','test3','test4','test5','test6','test7','test8','test9']
-
+   this.displayConcept=['test1', 'test2','test3','test4','test5','test6','test7','test8','test9','test1', 'test2','test3','test4','test5','test6','test7','test8','test9','test1', 'test2','test3','test4','test5','test6','test7','test8','test9','test1', 'test2','test3','test4','test5','test6','test7','test8','test9']
+    this.displayValue = ['test1', 'test2','test3','test4','test5','test6','test7','test8','test9'];
   }
 
   getDocId(filename:any){
@@ -81,10 +81,10 @@ export class KnowledgeComponent implements OnInit {
     let docId=this.getDocId(filename);
     //let dict={"dataset_id":"61263a2303d247d25675cad9"};
    // let docId="61263a2303d247d25675cad9";
-    this.kbService.RemoveDocument(docId).subscribe((data:any)=>{
-      console.log("inside api remove doc");
-      console.log(data);
-    });
+    // this.kbService.RemoveDocument(docId).subscribe((data:any)=>{
+    //   console.log("inside api remove doc");
+    //   console.log(data);
+    // });
     this.fileNames.pop();
   }
 
@@ -101,15 +101,15 @@ export class KnowledgeComponent implements OnInit {
     console.log("formData for dataextraction :", formData)
    // this.http.post("https://dataextractorrevised-yajn7tgvmq-el.a.run.app", formData).
     //this.http.post("http://192.168.43.107:8080/", formData).
-    this.http.post("https://dataextractor-v1-yajn7tgvmq-uc.a.run.app", formData).     
-      subscribe((data: any) => {
-      console.log("daaddda", data);
-      this.fileInformation.push(data);
-      console.log("All fileInformation :", this.fileInformation)
-     let docid=data.Document_id;
-      let datasetname=data.DatasetName;
-      console.log("docId", docid);
-    })
+    // this.http.post("https://dataextractor-v1-yajn7tgvmq-uc.a.run.app", formData).     
+    //   subscribe((data: any) => {
+    //   console.log("daaddda", data);
+    //   this.fileInformation.push(data);
+    //   console.log("All fileInformation :", this.fileInformation)
+    //  let docid=data.Document_id;
+    //   let datasetname=data.DatasetName;
+    //   console.log("docId", docid);
+    // })
 
   }
 
@@ -336,13 +336,14 @@ labelFunction(con:string){
   console.log("inside LabelFunction / add concept Function")
   console.log("before adding concept: ", this.displayConcept)
   console.log("concept:C", con)
-  this.kbService.addConcept(con).subscribe((data:any)=>{console.log("data: ", data)
-  if(data.Status == 'Success' ){
-    this.displayConcept.push(con) 
-    console.log("after adding concept: ", this.displayConcept) 
-  }
-  // Status: 'Success'
-});
+//   this.kbService.addConcept(con).subscribe((data:any)=>{
+//     console.log("data: ", data)
+//   if(data.Status == 'Success' ){
+//     this.displayConcept.push(con) 
+//     console.log("after adding concept: ", this.displayConcept) 
+//   }
+//   // Status: 'Success'
+// });
   //this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/add-label-value"+"?"+"label="+con,{headers}).
  /* this.kbService.addConcept(con).subscribe((data:any)=> {
     console.log("data: ", data.status)
@@ -363,13 +364,13 @@ valueFunction(con: string, val:string){
   console.log("value to add ", val )
   console.log("before adding value: ", this.displayValue)
   //this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/add-label-value?label="+con+"&&value="+val,{headers})
-  this.kbService.addValueForConcept(con,val).subscribe((data) => {
-    //console.log(data.status)
-  /* let data1=JSON.stringify(data);
-    console.log("add value " ,data)*/
-    console.log("data1", data)
+  // this.kbService.addValueForConcept(con,val).subscribe((data) => {
+  //   //console.log(data.status)
+  // /* let data1=JSON.stringify(data);
+  //   console.log("add value " ,data)*/
+  //   console.log("data1", data)
 
-  });
+  // });
       
   this.displayValue.push(val);
   console.log("after adding value: ", this.displayValue)
@@ -383,14 +384,14 @@ getvaluesForSelLabel(con: any){
   let headers =  new HttpHeaders({
     'Content-Type':  'application/json'
   })
-  this.kbService.getValForSelConcept(this.concept).
-  //this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/GetLabelValues"+"?"+"label="+dc, {headers}).
-        subscribe((data: any) => {
-          console.log(" get val from getValForSelConcept api: " ,data)
-          this.displayValue=data[con]
-          console.log("this.displayValue for selected label: ",con);
-          console.log("values", this.displayValue)
-  });
+  // this.kbService.getValForSelConcept(this.concept).
+  // //this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/GetLabelValues"+"?"+"label="+dc, {headers}).
+  //       subscribe((data: any) => {
+  //         console.log(" get val from getValForSelConcept api: " ,data)
+  //         this.displayValue=data[con]
+  //         console.log("this.displayValue for selected label: ",con);
+  //         console.log("values", this.displayValue)
+  // });
 }
 
 removeCon(con: any){
@@ -402,11 +403,11 @@ removeCon(con: any){
     if (index >= 0) {
       this.displayConcept.splice(index, 1);
     }
-  this.kbService.removeConcept(con).subscribe((data:any)=>{
-    console.log("inside remove label api: ", data)    
-    console.log("after deleting concept: ", this.displayConcept)
-    //TODO: update response body to this.displayConcept
-  })
+  // this.kbService.removeConcept(con).subscribe((data:any)=>{
+  //   console.log("inside remove label api: ", data)    
+  //   console.log("after deleting concept: ", this.displayConcept)
+  //   //TODO: update response body to this.displayConcept
+  // })
 
 //  this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/remove-label-value?label="+con, {headers}).  
 }
@@ -416,13 +417,13 @@ removeVal(val:any){
   console.log("value : "+ val)
  console.log("befor deleting value: ", this.displayValue)
 //  this.http.post("https://us-central1-db-inspiredstylist.cloudfunctions.net/remove-label-value?label="+this.concept+"&&value="+val, {headers}).subscribe((data:any) => {
-  this.kbService.removeValue(this.concept, val).subscribe((data:any)=>{
-    console.log(data)
-    console.log("inside removeValue api ", data)
-    this.displayValue.pop(val)
-    console.log("after deleting value: ", this.displayValue) 
+  // this.kbService.removeValue(this.concept, val).subscribe((data:any)=>{
+  //   console.log(data)
+  //   console.log("inside removeValue api ", data)
+  //   this.displayValue.pop(val)
+  //   console.log("after deleting value: ", this.displayValue) 
     
-  });
+  // });
  
 }
 
@@ -522,12 +523,10 @@ gettopidata(){
 traindata(){
   console.log("In train data the file selected is : ",this.selectedFile)
   let docId=this.getDocId(this.selectedFile);
-  this.kbService.traindata(docId).subscribe((data:any)=>{
-    console.log("inside api train data");
-    console.log(data);
-  }); 
+  // this.kbService.traindata(docId).subscribe((data:any)=>{
+  //   console.log("inside api train data");
+  //   console.log(data);
+  // }); 
 }
 
 }
-
- 
