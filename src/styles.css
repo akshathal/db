@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+
+ /* Responsive Styles */
+
+ html {
+    height: 100%;
+    width: 100%;
+ }
+
+ body {
+   height :100%;
+   width: 100%;
+ }
+
+/* @media screen and (max-width: 767px) {
+  .maindiv > *:not(.circle-link) ,
+  .appsection{
+    height: 70%;
+  }
+  #leftsidebar {width: 50px; float: left;}
+  .footer {
+    width: 10%;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .appsection{
+    height: 70%;
+  }
+  .footer {
+    width: 10%;
+  }
+
+   .appsection{
+    height: 70%;
+  }
+  .navbar {   
+    flex-direction: column;
+  }
+  .kmeta{
+    width:65%;
+  }
+  .conValue{
+    width:25%;
+  }
+  .kextraction{
+    width:10%;
+    overflow-inline
+
+  }
+  .footer {
+    width: 10%;
+    text-align: center;
+  }
+}*/
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
