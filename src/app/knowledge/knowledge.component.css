@@ -1,0 +1,120 @@
+.sectiondiv{
+  width:100%;
+  height: 100%;
+}
+
+.left{
+    width: 20%;
+  }
+  
+  .center{
+    width: 60%
+  }
+  
+  .right{
+    width: 20%;
+    background-color: white;
+  }
+  .w-8{
+    width:8%
+  }
+  .w-15{
+    width:15%
+  }
+  .hh3{
+    font-size: 20px;
+  }
+
+/*  knowledge extraction*/
+.kextraction{
+    height:100%;    
+    text-align: center;
+   /* font-size: 1.1rem; */
+    overflow: auto;
+}
+.docstyle{
+  width:fit-content;
+}
+.btstyle{
+  width: 10px;
+}
+.btn-btm{
+  left:-1.05%;
+}
+
+.fileli{
+  background-color: cadetblue;
+}
+
+.btn {
+  border: blue;
+  width:80%;
+  max-width: 155px;
+  background-color: lightblue;
+  padding: 10px ;
+  font-size: 12px;
+  cursor: pointer;
+  
+}
+.trashcl{
+    width: calc(100% -80%);
+    float:right;
+    right:0;
+    display:block;
+}
+
+
+/*  meta knowledge*/
+  .kmeta{
+    text-align: center;
+    font-size: 1.1rem;
+    overflow: auto;
+        
+  }
+
+  .kmetaNav {
+    font-size: 0.9rem;
+  }
+  .navbar{
+    width: 400px;
+    overflow: hidden;
+  }
+  
+  .metanav{
+    background-color: lightblue;
+    font-size: 0.8rem;
+  }
+
+  /* concept value*/
+
+  .conValue{ 
+    text-align: center;
+    font-size: 1.1rem;
+    overflow: auto;
+}
+
+.condiv{
+    height: 220px;
+    width: 100%;
+
+}
+
+.valdiv{
+    height: calc(100% - 220px);
+   width: 100%;
+}
+
+.btwidth{
+ /* width:60px;*/
+  background-color:grey;
+}
+
+.datascroll{
+  overflow:auto;
+  /*overflow-y: scroll;*/
+}
+
+.rmRight{
+  float:right;
+  right:0;
+}

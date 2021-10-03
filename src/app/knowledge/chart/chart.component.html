@@ -1,0 +1,9 @@
+<!-- <p>chart works!</p> -->
+<div>
+    <select class="form-control form-control-sm form-select" [(ngModel)]="gram" (change)="getgram(gram)">
+        <option  value="UNIGRAM">UNIGRAM</option>
+        <option  value="BIGRAM">BIGRAM</option>
+        <option  value="TRIGRAM">TRIGRAM</option>
+      </select>
+</div>
+<div id="chartdiv" class="bodychaar"  (contextmenu)="onRightClick()" style="width: 100%; height: 500px"></div>

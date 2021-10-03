@@ -1,0 +1,46 @@
+<div class="d-flex flex-row">
+    <select class="form-control form-control-sm form-select" [(ngModel)]="primNode">
+      Primary Node
+      <option>Primary Node</option>
+      <option *ngFor="let lb of uniqueLabel" value="{{lb}}" >{{lb}}</option>
+    </select>
+    
+    <select class="form-control form-control-sm form-select" [(ngModel)]="relation">
+      <option>Relationship</option>
+      <option *ngFor="let lb of uniqueLabel" value="{{lb}}" name="" >{{lb}}</option>
+    </select>
+    <select class="form-control form-control-sm form-select" [(ngModel)]="secNode">
+      <option>Secondary Node</option>
+      <option *ngFor="let lb of uniqueLabel" value="{{lb}}" >{{lb}}</option>
+    </select>
+
+      <input type="button" value="submit" (click)="getgraphOnSubmit(primNode,relation,secNode)">
+      <input type="button" value="Save">
+  </div>
+  <div></div>
+  <div class="graphload" id="graphcontainer{{count}}"></div>
+<!--<div id="graphcontainer{{graph.count}}" *ngFor="let graph of graphList">  
+</div>-->
+
+<!--<div class="chart-container" id="chartContainer" style="width: 400px; height: 300px;"></div>-->
+<!--<div id="GraphView" class="tabcontent" >
+     <div>               
+                   
+    <select id="arr1" onchange="getOption1()">
+    <option value="Primary Node" >Primary Node</option></select>
+    <select id="arr2" onchange="getOption2()">
+        <option value="Primary Node" >Relationship</option></select>
+    <select id="arr3" onchange="getOption3()">
+        <option value="Primary Node" >Secondary Node</option></select>
+    </div>-->
+    <!--<input type="text" id="doj" name="nodes" size="75" onfocus="this.value=''"
+         placeholder="start typing your ontology view....">-->
+    <!--<input type="button" value="submit" onclick="realtimenodes()">-->
+  <!--  <div>
+    <input type="button" value="submit" onclick="realtimenodes();">
+    <input type="button" value="Save" onclick="savedata()">
+</div>
+<p id="graphcontainer"></p>
+
+
+</div>-->
