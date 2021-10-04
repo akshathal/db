@@ -1,6 +1,6 @@
 
 .appheader{
-  height: 80px;
+  height: 8%;
   background-color: rgb(94, 125, 172);
   width: 100%;
   display: flex;
@@ -18,11 +18,10 @@
   flex: 1;
 }
 .appfooter{
-  height: 40px;
+  height: 100%;
   background-color: rgb(94, 125, 172);
   text-align: center;
   font-size: 0.8rem;
-  align-content: center;
 }
 
 .footerimg{
@@ -41,4 +40,6 @@
   right: -270px;
 }
 
-
+.router-component{
+  height: 88%;
+}
