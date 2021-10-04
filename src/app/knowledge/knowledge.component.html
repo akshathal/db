@@ -2,7 +2,7 @@
 <!-- knowledge extraction : start-->
     <div class="left h-100">
      <div class="kextraction border border-2 h-100">
-        <h6>Knowledge Extraction</h6>
+        <h3>Knowledge Extraction</h3>
         <hr>
         <nav class="navbar navbar-light bg-light">
           <form class="container-fluid justify-content-start d-flex flex-row"  enctype="multipart/form-data">
@@ -28,38 +28,43 @@
     <div class="center border border-2 d-flex flex-column">
     
         <div class="kmeta"><!-- meta main div-->
-            <h6>Meta Knowledge</h6>
+            <h3>Meta Knowledge</h3>
             <hr>
             <div>
               <div class="container-fluid d-flex flex-row " >
-                <ul class="navbar-nav me-auto my-2 my-lg-0 d-flex flex-row border metanav" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item dropdown border">
-                      <a class="nav-link dropdown-toggle"  id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          TopiCloud
-                      </a>                     
-                      <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" data-target="#topicloudDisplay" (click)="getgramdata('UNIGRAM')" href="#">UNIGRAM</a></li> 
-                        <li><a class="dropdown-item"  data-target="#topicloudDisplay" (click)="getgramdata('BIGRAM')" href="#">BIGRAM</a></li>
-                        <li><a class="dropdown-item"  data-target="#topicloudDisplay" (click)="getgramdata('TRIGRAM')" href="#">TRIGRAM</a></li>
-                      </ul>
-                    </li>
+                <mat-tab-group>
+                  <mat-tab label="Topi Cloud">
+                    <app-chart [chartDetails]="chartDetails"></app-chart>
+                  </mat-tab>
+                  <mat-tab label="Raw View">
+                    <div>
+                      <app-rawview [rawviewDts]="rawSentences? rawSentences: {}"></app-rawview>
+                    </div>
+                  </mat-tab>
+                  <mat-tab label="Graph View">
+                    <app-graphview [uniqueLabel]="uniqueLabel? uniqueLabel: {}"></app-graphview>
+                  </mat-tab>
+                  <mat-tab label="Train Data">
+                    
+                  </mat-tab>
+                </mat-tab-group>
+                <!-- <ul class="navbar-nav me-auto my-2 my-lg-0 d-flex flex-row border metanav" style="--bs-scroll-height: 100px;">
+                  
                     <li class="nav-item border" data-target="#topicloudDisplay" (click)="gettopidata()">
                       <a class="nav-link" aria-current="page" >TopiCloud</a>
-                      </li>  
-                  <li class="nav-item border" data-target="#rawviewDisplay" (click)="getrawviewdata()">
-                  <a class="nav-link" aria-current="page" >RawView</a>
-                  </li>
-                  <li class="nav-item border" data-target="#graphDisplay" (click)="getgraphdata()">
-                  <a class="nav-link" >GraphView</a>
-                  </li>
-                  
-                  <li class="nav-item border" (click)="traindata()">
-                  <a class="nav-link"  tabindex="-1">Train Data</a> 
-                  </li>
-              </ul>
+                    </li>  
+                    <li class="nav-item border" data-target="#rawviewDisplay" (click)="getrawviewdata()">
+                      <a class="nav-link" aria-current="page" >RawView</a>
+                    </li>
+                    <li class="nav-item border" data-target="#graphDisplay" (click)="getgraphdata()">
+                      <a class="nav-link" >GraphView</a>
+                    </li>
+                    <li class="nav-item border" (click)="traindata()">
+                      <a class="nav-link"  tabindex="-1">Train Data</a> 
+                    </li>
+                </ul> -->
               </div>
-            </div>
-            
+            </div>            
         </div>
       <!--  <div id="chartdiv"  style="width: 100%; height: 500px"></div>
          
@@ -70,9 +75,9 @@
       <app-chart [chartDetails]="chartDetails" [datagram]="datagram"></app-chart>   
   </div> -->
 
-  <div class="h-100" *ngIf="topiDetails" id="topicloudDisplay">
+  <!-- <div class="h-100" *ngIf="topiDetails" id="topicloudDisplay">
     <app-chart [chartDetails]="chartDetails"></app-chart>   
-  </div>
+  </div> -->
   <!--
   <div class="" *ngIf="chartDetails" id="topicloudDisplayBi">
     <app-chart [chartDetails]="chartDetails" [datagram]="this.datagram"></app-chart>
@@ -80,17 +85,18 @@
 <div class="" *ngIf="chartDetails" id="topicloudDisplayTri">
   <app-chart [chartDetails]="chartDetails" [datagram]="this.datagram"></app-chart>
 </div> -->
-  <div class="h-100" *ngIf="rawviewDetails" id="rawviewDisplay">
+  <!-- <div class="h-100" *ngIf="rawviewDetails" id="rawviewDisplay">
     <app-rawview [rawviewDts]="rawSentences"></app-rawview>
-  </div> 
-  <div class="h-100" *ngIf="graphDetails" id="graphDisplay"><!--graph display
+  </div>  -->
+  <!-- <div class="h-100" *ngIf="graphDetails" id="graphDisplay">
+    graph display
     
-    <app-graphview [primNode]="primNode" [relation]="relation" [secNode]="secNode"></app-graphview>-->
+    <app-graphview [primNode]="primNode" [relation]="relation" [secNode]="secNode"></app-graphview>
     <app-graphview [uniqueLabel]="uniqueLabel"></app-graphview>
   
-  </div> 
+  </div>  -->
 
-</div>
+    </div>
  
      <!-- <app-metaknowledge> </app-metaknowledge>-->
      <!-- <app-chart></app-chart>
@@ -128,49 +134,56 @@
      </div>
      <app-concept-value></app-concept-value>-->
      <div class="condiv">
-      <h6>Concept</h6>
+      <h3>Concept</h3>
       <hr>
-      <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Create Concept...." 
+      <div class="input-group mb-3 concept-value-group">
+          <input type="text" class="form-control concept-value-input" placeholder="Create Concept...." 
               aria-describedby="button-addon2" [(ngModel)]="concept">
           <button class="btn btn-outline-secondary btn-sm" type="submit" id="button-addon2"
           (click)="labelFunction(concept)">Submit</button>                    
       </div>
       <div>
         <div class="datascroll">
-          <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
-            <mat-chip *ngFor="let dc of displayConcept" color="primary" 
-            [removable]="removable" (removed)="removeCon(dc)">
+          <mat-chip-list aria-label="Concept">
+            <mat-chip *ngFor="let dc of displayConcept" color="primary" [removable]="removable" (removed)="removeCon(dc)">
               {{dc}}<button matChipRemove *ngIf="removable">
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
-          </mat-chip-list>
-        <!-- <button type="button" *ngFor="let dc of displayConcept" class="btn btn-secondary btn-sm" (click)="getvaluesForSelLabel(dc)" >
-        {{dc}}
-        <i class="fa fa-times" aria-hidden="true" style="float:right;" (click)="removeCon(dc)"></i>
-      </button></div> -->
-     <!--   <li class="d-flex border border-2" *ngFor="let dc of displayConcept">{{dc}}</li>
-    
-    <li class="d-flex border border-2" *ngFor="let dv of displayValue">{{dv}}</li>--></div>
-  </div>
-  <hr>
-  <div class="valdiv">
-    <h6>Value</h6>
+            </mat-chip-list>
+          <!-- <button type="button" *ngFor="let dc of displayConcept" class="btn btn-secondary btn-sm" (click)="getvaluesForSelLabel(dc)" >
+          {{dc}}
+          <i class="fa fa-times" aria-hidden="true" style="float:right;" (click)="removeCon(dc)"></i>
+          </button></div> -->
+          <!--   <li class="d-flex border border-2" *ngFor="let dc of displayConcept">{{dc}}</li>
+          
+          <li class="d-flex border border-2" *ngFor="let dv of displayValue">{{dv}}</li>-->
+        </div>
+      </div>
+    </div>
     <hr>
-    <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Add Value to Concept...." 
-             aria-describedby="button-addon2" [(ngModel)]="value">
-            <button class="btn btn-outline-secondary btn-sm" type="submit" id="button-addon2"
-            (click)="valueFunction(concept, value)">Submit</button>
-    </div>  
-    <div class="datascroll">
-      <button type="button" *ngFor="let dv of displayValue" class="btn btn-secondary btn-sm btwidth"
-      >{{dv}}
-        <i class="fa fa-times" aria-hidden="true"style="float:right;"  (click)="removeVal(dv)"></i>
-        
-      </button> </div>
-</div>
+    <div class="valdiv">
+      <h3>Value</h3>
+      <hr>
+      <div class="input-group mb-3 concept-value-group">
+              <input type="text" class="form-control concept-value-input" placeholder="Add Value to Concept...." 
+              aria-describedby="button-addon2" [(ngModel)]="value">
+              <button class="btn btn-outline-secondary btn-sm" type="submit" id="button-addon2"
+              (click)="valueFunction(concept, value)">Submit</button>
+      </div>  
+      <div class="datascroll">
+        <mat-chip-list aria-label="Concept">
+          <mat-chip *ngFor="let dv of displayValue" color="primary" [removable]="removable" (removed)="removeVal(dv)">
+            {{dv}}<button matChipRemove *ngIf="removable"><mat-icon>cancel</mat-icon></button>
+          </mat-chip>
+        </mat-chip-list>
+        <!-- <button type="button" *ngFor="ldet dv of isplayValue" class="btn btn-secondary btn-sm btwidth"
+        >{{dv}}
+          <i class="fa fa-times" aria-hidden="true"style="float:right;"  (click)="removeVal(dv)"></i>
+          
+        </button>  -->
+      </div>
+    </div>
     
 
     </div>
@@ -178,5 +191,4 @@
 
     
 
-  </div> 
-</div>
+</div> 
